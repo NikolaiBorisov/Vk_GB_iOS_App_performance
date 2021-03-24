@@ -143,5 +143,32 @@ class NetworkManager {
                 }
             }
     }
+    //MARK:- News Feed
+    
+    func loadNews(_ completion: @escaping ([Post]) -> Void) {
+        let path = "/method/newsfeed.get"
+        
+        let params: Parameters = [
+            "access_token": Session.shared.token,
+            "v": NetworkManager.version,
+            "filters": "post"
+        ]
+        
+        AF.request(NetworkManager.baseUrl + path,
+                   method: .get,
+                   parameters: params)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    let postJSON = json["response"]["items"].arrayValue
+                    let posts = postJSON.compactMap { Post($0) }
+                    completion(posts)
+                case .failure(let error):
+                    print(error)
+                }
+                
+            }
+    }
     
 }

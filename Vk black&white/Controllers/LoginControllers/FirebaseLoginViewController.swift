@@ -39,7 +39,7 @@ class FirebaseLoginViewController: UIViewController {
         guard
             let email = emailTF.text, let password = passwordTF.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -50,7 +50,7 @@ class FirebaseLoginViewController: UIViewController {
         guard
             let email = emailTF.text, let password = passwordTF.text else { return }
         
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
             }
