@@ -9,6 +9,6 @@ import Foundation
 
 struct NetworkConstants {
     let clientID = "7768760"
-    let scope = "262150"
+    let scope = "270342"
     let versionAPI = "5.130"
 }
