@@ -160,10 +160,14 @@ class NetworkManager {
             .responseData { response in
                 switch response.result {
                 case .success(let data):
-                    let json = JSON(data)
-                    let postJSON = json["response"]["items"].arrayValue
-                    let posts = postJSON.compactMap { Post($0) }
-                    completion(posts)
+                    DispatchQueue.global(qos: .utility).async {
+                        let json = JSON(data)
+                        let postJSON = json["response"]["items"].arrayValue
+                        let posts = postJSON.compactMap { Post($0) }
+                        DispatchQueue.main.async {
+                            completion(posts)
+                        }
+                    }
                 case .failure(let error):
                     print(error)
                 }

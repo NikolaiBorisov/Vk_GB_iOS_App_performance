@@ -39,13 +39,13 @@ class NewsHeaderViewCell: UITableViewCell {
     }
     
     func configure(with post: Post) {
-        self.nameLabel.text = "Text"
+        self.nameLabel.text = "Here should be the name"
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .medium
         self.dateLabel.text = dateFormatter.string(from: post.date)
         
-        self.avatarImageView.image = UIImage(named: "Ag3")
+        self.avatarImageView.image = UIImage(named: "Photo")
         
     }
     

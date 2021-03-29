@@ -34,7 +34,8 @@ class NewsFooterViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.likesControl = nil
+        self.likesControl.isLiked = false
+        self.likesControl.likesCount = 0
         self.commentsButton.setTitle("0", for: .normal)
         self.repostsButton.setTitle("0", for: .normal)
         self.viewsButton.setTitle("0", for: .normal)

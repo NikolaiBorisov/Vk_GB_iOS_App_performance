@@ -18,15 +18,22 @@ class VKNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(NewsHeaderViewCell.nib, forCellReuseIdentifier: NewsHeaderViewCell.reuseIdentifier)
-        self.tableView.register(NewsFooterViewCell.nib, forCellReuseIdentifier: NewsFooterViewCell.reuseIdentifier)
+        let headerNib = UINib(nibName: "NewsHeaderViewCell", bundle: nil)
+        self.tableView.register(headerNib, forCellReuseIdentifier: "HeaderCell")
+        
+        let footerNib = UINib(nibName: "NewsFooterViewCell", bundle: nil)
+        self.tableView.register(footerNib, forCellReuseIdentifier: "FooterCell")
+        
+        let postNib = UINib(nibName: "PostTableViewCell", bundle: nil)
+        self.tableView.register(postNib, forCellReuseIdentifier: "PostCell")
+        
+        let photoNib = UINib(nibName: "PhotoTableViewCell", bundle: nil)
+        self.tableView.register(photoNib, forCellReuseIdentifier: "PhotoCell")
         
         let networkManager = NetworkManager()
         networkManager.loadNews() { posts in
             self.posts = posts
         }
-        
-        
     }
     
     // MARK: - Table view data source
@@ -42,21 +49,31 @@ class VKNewsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "VKNews", for: indexPath)
+        
+        guard let post = self.posts?[indexPath.section] else { return PostTableViewCell() }
         
         switch indexPath.row {
         case 0:
             guard
-                let post = self.posts?[indexPath.section],
-                let cell = self.tableView.dequeueReusableCell(withIdentifier: NewsHeaderViewCell.reuseIdentifier) as? NewsHeaderViewCell
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? NewsHeaderViewCell
             else { return NewsHeaderViewCell() }
             cell.configure(with: post)
             return cell
             
         case 1:
-            return NewsHeaderViewCell()
+            guard
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostTableViewCell
+            else { return PostTableViewCell() }
+            cell.configure(with: post)
+            return cell
+            
         case 2:
-            return NewsFooterViewCell()
+            guard
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "FooterCell") as? NewsFooterViewCell
+            else { return NewsFooterViewCell() }
+            cell.configure(with: post)
+            return cell
+            
         default:
             return NewsHeaderViewCell()
         }
@@ -64,18 +81,26 @@ class VKNewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0:
-            return 145
-        case 2:
-            return 40
+        case 0, 2:
+            return 60
+            
         default:
-            return 100
+            return UITableView.automaticDimension
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0, 2:
+            return 60
+            
+        default:
+            return UITableView.automaticDimension
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     
 }

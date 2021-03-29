@@ -1,13 +1,15 @@
 //
-//  VKNewsTableViewCell.swift
+//  PhotoTableViewCell.swift
 //  Vk black&white
 //
-//  Created by NIKOLAI BORISOV on 20.03.2021.
+//  Created by NIKOLAI BORISOV on 24.03.2021.
 //
 
 import UIKit
 
-class VKNewsCell: UITableViewCell {
+class PhotoTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var photoImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +21,9 @@ class VKNewsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configureWith(post: Post) {
+        
+    }
+    
 }

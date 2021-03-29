@@ -366,7 +366,7 @@
                     <connections>
                         <segue destination="NZR-Zn-Lz1" kind="relationship" relationship="viewControllers" id="vc3-6A-Kcy"/>
                         <segue destination="V3u-9B-hJe" kind="relationship" relationship="viewControllers" id="I9J-eT-2im"/>
-                        <segue destination="kFk-jk-5vi" kind="relationship" relationship="viewControllers" id="O0c-wa-qlZ"/>
+                        <segue destination="dII-hb-EDs" kind="relationship" relationship="viewControllers" id="Hnt-2H-LcL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NiX-Sj-DHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -919,7 +919,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1i-Co-ibe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="1185"/>
+            <point key="canvasLocation" x="1583" y="1221"/>
         </scene>
         <!--News Table View Controller-->
         <scene sceneID="Zk1-e8-cqK">
@@ -930,11 +930,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VKNews" rowHeight="145" id="jww-Q5-tQM" customClass="VKNewsCell" customModule="Vk_black_white" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="145"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VKNews" rowHeight="60" id="jww-Q5-tQM" customClass="VKNewsCell" customModule="Vk_black_white" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jww-Q5-tQM" id="In7-QX-VOZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -948,7 +948,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aX7-gS-SKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-36.231884057971016" y="1945.9821428571427"/>
+            <point key="canvasLocation" x="22" y="1222"/>
         </scene>
         <!--News-->
         <scene sceneID="ClL-1i-re2">
@@ -965,13 +965,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hy7-eR-drz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-604" y="1258"/>
+            <point key="canvasLocation" x="851" y="1221"/>
         </scene>
-        <!--Item-->
+        <!--News-->
         <scene sceneID="f0x-SP-k00">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dII-hb-EDs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dds-7Q-QlI"/>
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" id="dds-7Q-QlI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="blP-fk-qXx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -984,7 +984,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVh-Z9-be4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946.37681159420299" y="1945.9821428571427"/>
+            <point key="canvasLocation" x="-787" y="1221"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
