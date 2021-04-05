@@ -33,7 +33,7 @@ class MyFriendsTableController: UITableViewController {
         return refreshControl
     }()
     
-    private var allFriends: Results<User>? {
+    var allFriends: Results<User>? {
         didSet {
             tableView.reloadData()
         }

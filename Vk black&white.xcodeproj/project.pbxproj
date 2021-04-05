@@ -23,6 +23,11 @@
 		FA13585025AA0D0F005D7B56 /* MatrixTheme1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA13584F25AA0D0F005D7B56 /* MatrixTheme1.mp3 */; };
 		FA13585425AA0FF9005D7B56 /* MatrixTheme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA13585325AA0FF9005D7B56 /* MatrixTheme2.mp3 */; };
 		FA1872A425DD5ACB00437CFE /* CustomGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1872A325DD5ACB00437CFE /* CustomGradient.swift */; };
+		FA2B5D6F261B005F007BC073 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B5D6E261B005F007BC073 /* Operation.swift */; };
+		FA2B5D72261B0267007BC073 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B5D71261B0267007BC073 /* GetData.swift */; };
+		FA2B5D75261B0412007BC073 /* ReloadTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B5D74261B0412007BC073 /* ReloadTableView.swift */; };
+		FA2B5D78261B05BD007BC073 /* ParseFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B5D77261B05BD007BC073 /* ParseFriends.swift */; };
+		FA2B5D7B261B08D3007BC073 /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B5D7A261B08D3007BC073 /* FriendsService.swift */; };
 		FA2C227A25850418006E4C25 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C227925850418006E4C25 /* CustomView.swift */; };
 		FA40B9BC257FDF6300F7BE44 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40B9BB257FDF6300F7BE44 /* MyGroupsViewController.swift */; };
 		FA40B9C5257FEE6000F7BE44 /* MyGroupsCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40B9C4257FEE6000F7BE44 /* MyGroupsCell copy.swift */; };
@@ -95,6 +100,11 @@
 		FA13584F25AA0D0F005D7B56 /* MatrixTheme1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MatrixTheme1.mp3; sourceTree = "<group>"; };
 		FA13585325AA0FF9005D7B56 /* MatrixTheme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MatrixTheme2.mp3; sourceTree = "<group>"; };
 		FA1872A325DD5ACB00437CFE /* CustomGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradient.swift; sourceTree = "<group>"; };
+		FA2B5D6E261B005F007BC073 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		FA2B5D71261B0267007BC073 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
+		FA2B5D74261B0412007BC073 /* ReloadTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableView.swift; sourceTree = "<group>"; };
+		FA2B5D77261B05BD007BC073 /* ParseFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseFriends.swift; sourceTree = "<group>"; };
+		FA2B5D7A261B08D3007BC073 /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
 		FA2C227925850418006E4C25 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		FA40B9BB257FDF6300F7BE44 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		FA40B9C4257FEE6000F7BE44 /* MyGroupsCell copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGroupsCell copy.swift"; sourceTree = "<group>"; };
@@ -243,10 +253,23 @@
 		FA1DDFEB258000E000F46322 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA2B5D6D261B0051007BC073 /* Operation */,
 				FA3C5A3F25D2A17C00C508BB /* NetworkServices */,
 				FA0D309225FA45DA006D4A93 /* Firebase */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FA2B5D6D261B0051007BC073 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B5D6E261B005F007BC073 /* Operation.swift */,
+				FA2B5D71261B0267007BC073 /* GetData.swift */,
+				FA2B5D74261B0412007BC073 /* ReloadTableView.swift */,
+				FA2B5D77261B05BD007BC073 /* ParseFriends.swift */,
+				FA2B5D7A261B08D3007BC073 /* FriendsService.swift */,
+			);
+			path = Operation;
 			sourceTree = "<group>";
 		};
 		FA3C5A3F25D2A17C00C508BB /* NetworkServices */ = {
@@ -569,6 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2B5D6F261B005F007BC073 /* Operation.swift in Sources */,
 				FAFAA0C22606407200B315EA /* NewsFooterViewCell.swift in Sources */,
 				FAA91FB425D4274E00ED1E66 /* NetworkConstants.swift in Sources */,
 				FA9780E025912D4A004E852D /* LoadingIndicator.swift in Sources */,
@@ -594,8 +618,10 @@
 				FA8887C02586DC6600236369 /* MatrixViewController.swift in Sources */,
 				FA4EF177258F890B00E3E3D0 /* RandomStatusControl.swift in Sources */,
 				FA4F98D425DFAAB600EC5AFD /* SearchBarControl.swift in Sources */,
+				FA2B5D72261B0267007BC073 /* GetData.swift in Sources */,
 				FAA91FAA25D3C39A00ED1E66 /* VKLoginViewController.swift in Sources */,
 				FA11CBDF257F98BC00A3E03D /* MyFriendsTableController.swift in Sources */,
+				FA2B5D75261B0412007BC073 /* ReloadTableView.swift in Sources */,
 				FA8887B62586D4B300236369 /* Gif.swift in Sources */,
 				FA90DFCD25CD5A12001B40C6 /* SessionSingleton.swift in Sources */,
 				FA617BF6258E9E6B006E957E /* NewsTableViewCell.swift in Sources */,
@@ -603,12 +629,14 @@
 				FA609B25260B394C00E845B5 /* Attachment.swift in Sources */,
 				FA9037B325D68D89001F76C1 /* ClassPhotoVK.swift in Sources */,
 				FA1872A425DD5ACB00437CFE /* CustomGradient.swift in Sources */,
+				FA2B5D7B261B08D3007BC073 /* FriendsService.swift in Sources */,
 				FA609B36260B3F7800E845B5 /* PhotoTableViewCell.swift in Sources */,
 				FA8887B92586D6C300236369 /* WomanInRed.swift in Sources */,
 				FA4F98D025DFA4CD00EC5AFD /* AllGroupsCell.swift in Sources */,
 				FAEFCD122590C9C500B30D18 /* DateTimeControl.swift in Sources */,
 				FA4F98CD25DFA1D500EC5AFD /* ImageService.swift in Sources */,
 				FA40B9BC257FDF6300F7BE44 /* MyGroupsViewController.swift in Sources */,
+				FA2B5D78261B05BD007BC073 /* ParseFriends.swift in Sources */,
 				FA0D309025FA45D6006D4A93 /* FirebaseUser.swift in Sources */,
 				FA617BED258E9919006E957E /* AllAnimation.swift in Sources */,
 				FA65E6F7259B357B00D93760 /* LoginScreenAnimation.swift in Sources */,
