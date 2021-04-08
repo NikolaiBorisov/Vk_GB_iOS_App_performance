@@ -69,6 +69,7 @@
 		FAC4768B25D94A5400DA251C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4768A25D94A5400DA251C /* Player.swift */; };
 		FAC4769025D9565600DA251C /* ImagesGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4768F25D9565600DA251C /* ImagesGalleryViewController.swift */; };
 		FAD8C93F25DAEF6A00E77F08 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8C93E25DAEF6A00E77F08 /* LikeControl.swift */; };
+		FADC240E261F7D7600FB3691 /* PromiseFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC240D261F7D7600FB3691 /* PromiseFriends.swift */; };
 		FAE486B025EA40B3003C9522 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE486AF25EA40B3003C9522 /* RealmManager.swift */; };
 		FAE90C3A25E7D443008635C4 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE90C3925E7D442008635C4 /* ImageView.swift */; };
 		FAEFCD122590C9C500B30D18 /* DateTimeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFCD112590C9C500B30D18 /* DateTimeControl.swift */; };
@@ -146,6 +147,7 @@
 		FAC4768A25D94A5400DA251C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FAC4768F25D9565600DA251C /* ImagesGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGalleryViewController.swift; sourceTree = "<group>"; };
 		FAD8C93E25DAEF6A00E77F08 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		FADC240D261F7D7600FB3691 /* PromiseFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseFriends.swift; sourceTree = "<group>"; };
 		FAE486AF25EA40B3003C9522 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		FAE90C3925E7D442008635C4 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		FAEFCD112590C9C500B30D18 /* DateTimeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeControl.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		FA1DDFEB258000E000F46322 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FADC240C261F7D5D00FB3691 /* Promise */,
 				FA2B5D6D261B0051007BC073 /* Operation */,
 				FA3C5A3F25D2A17C00C508BB /* NetworkServices */,
 				FA0D309225FA45DA006D4A93 /* Firebase */,
@@ -404,6 +407,14 @@
 				FA0D308B25FA2B63006D4A93 /* FirebaseLoginViewController.swift */,
 			);
 			path = LoginControllers;
+			sourceTree = "<group>";
+		};
+		FADC240C261F7D5D00FB3691 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				FADC240D261F7D7600FB3691 /* PromiseFriends.swift */,
+			);
+			path = Promise;
 			sourceTree = "<group>";
 		};
 		FAFA5FC6257E57890069411F /* Files */ = {
@@ -649,6 +660,7 @@
 				FA65E6FD259B471400D93760 /* InteractiveTransition.swift in Sources */,
 				FAFAA0AD26063F6C00B315EA /* VKNewsTableViewController.swift in Sources */,
 				FA609B3B260B406200E845B5 /* PostTableViewCell.swift in Sources */,
+				FADC240E261F7D7600FB3691 /* PromiseFriends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

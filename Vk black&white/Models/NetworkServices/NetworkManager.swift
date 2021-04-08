@@ -46,7 +46,7 @@ class NetworkManager {
                 }
             }
     }
-    
+
     //MARK:- Load Friends Photos
     
     func loadPhotos(for userId: Int, completion: @escaping ([Photo]) -> Void) {

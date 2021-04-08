@@ -115,6 +115,7 @@ class MyFriendsTableController: UITableViewController {
         searchController.searchBar.setValue("Cancel", forKey: "cancelButtonText")
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        PromiseFriends.freandPromise()
         pairTableAndRealm()
     }
     
