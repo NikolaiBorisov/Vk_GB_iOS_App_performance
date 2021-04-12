@@ -11,6 +11,7 @@ class AllGroupsTableController: UITableViewController {
     
     //@IBOutlet weak var searchBar: UISearchBar!
     
+    var imageService: ImageService?
     let networkManager = NetworkManager()
     var allGroups = [Group]()
     var filteredGroups = [Group]()
@@ -26,6 +27,8 @@ class AllGroupsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageService = ImageService(container: tableView)
         networkManager.searchGroup(token: Session.shared.token, group: " ") { [weak self] (allGroups) in
             self?.allGroups = allGroups
             let allGroupsDictionary = Dictionary.init(grouping: allGroups) {
@@ -77,7 +80,9 @@ class AllGroupsTableController: UITableViewController {
         } else {
             groups = allGroupsSections[indexPath.section].items[indexPath.row]
         }
-        cell.configure(with: groups)
+        //cell.configure(with: groups)
+        cell.groupName.text = groups.name
+        cell.groupImage.image = imageService?.photo(atIndexpath: indexPath, byUrl: groups.photo100)
         return cell
     }
     

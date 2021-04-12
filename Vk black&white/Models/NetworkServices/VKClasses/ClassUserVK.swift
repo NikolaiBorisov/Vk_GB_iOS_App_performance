@@ -21,7 +21,7 @@ class FriendsSections: Object {
     }
 }
 
-class User: Object {
+class User: Object, Decodable {
     @objc dynamic var id: Int = 0
     @objc dynamic var firstName: String = ""
     @objc dynamic var lastName: String = ""
@@ -57,9 +57,18 @@ class User: Object {
     override class func primaryKey() -> String? {
         "id"
     }
+    
 }
 
-class City: Object {
+class FriendResponse: Decodable {
+    var response: FriendList
+}
+
+class FriendList: Decodable {
+    var items: [User]
+}
+
+class City: Object, Decodable {
     
     @objc dynamic var title: String = ""
     
