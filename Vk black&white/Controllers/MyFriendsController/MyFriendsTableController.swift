@@ -38,6 +38,7 @@ class MyFriendsTableController: UITableViewController {
             tableView.reloadData()
         }
     }
+    var imageService: ImageService?
     var token: NotificationToken?
     var filteredFriends = [User]()
     var searchBarIsEmpty: Bool {
@@ -108,6 +109,7 @@ class MyFriendsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageService = ImageService(container: tableView)
         tableView.refreshControl = myRefreshControl
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -156,7 +158,9 @@ class MyFriendsTableController: UITableViewController {
         } else {
             friends = friendSections[indexPath.section].items[indexPath.row]
         }
-        cell.configure(with: friends)
+        //cell.configure(with: friends)
+        cell.friendsName.text = friends.firstName + " " + friends.lastName
+        cell.friendsPhoto.image = imageService?.photo(atIndexpath: indexPath, byUrl: friends.photo100)
         return cell
     }
     

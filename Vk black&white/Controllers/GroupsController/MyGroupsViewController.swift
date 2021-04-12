@@ -17,6 +17,7 @@ class MyGroupsViewController: UITableViewController {
         let myGroups: Results<Group>? = realmManager?.getObjects()
         return myGroups?.sorted(byKeyPath: "id", ascending: true)
     }
+    var imageService: ImageService?
     var filteredMyGroups = [Group]()
     var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
@@ -30,6 +31,8 @@ class MyGroupsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageService = ImageService(container: tableView)
         networkManager.loadGroups() { [weak self] (myGroups) in
             let myGroupsDictionary = Dictionary.init(grouping: myGroups) {
                 $0.name.prefix(1)
@@ -81,7 +84,9 @@ class MyGroupsViewController: UITableViewController {
         } else {
             groups = myGroupsSections[indexPath.section].items[indexPath.row]
         }
-        cell.configure(with: groups)
+        //cell.configure(with: groups)
+        cell.groupName.text = groups.name
+        cell.groupImage.image = imageService?.photo(atIndexpath: indexPath, byUrl: groups.photo100)
         return cell
     }
     

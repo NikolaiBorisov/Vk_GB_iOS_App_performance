@@ -284,7 +284,6 @@
 				FA90DFCC25CD5A12001B40C6 /* SessionSingleton.swift */,
 				FA4F98C625DF9E7200EC5AFD /* ServerErrors.swift */,
 				FA4F98C925DF9F6800EC5AFD /* Response.swift */,
-				FA4F98CC25DFA1D500EC5AFD /* ImageService.swift */,
 				FA9037B825D6934A001F76C1 /* VKClasses */,
 			);
 			path = NetworkServices;
@@ -395,6 +394,7 @@
 				FAD8C93E25DAEF6A00E77F08 /* LikeControl.swift */,
 				FA9B798C2586A39F00340F25 /* SorterBarControl.swift */,
 				FA4F98D325DFAAB600EC5AFD /* SearchBarControl.swift */,
+				FA4F98CC25DFA1D500EC5AFD /* ImageService.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
