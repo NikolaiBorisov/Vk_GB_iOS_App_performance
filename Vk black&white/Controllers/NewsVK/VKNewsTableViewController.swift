@@ -15,6 +15,8 @@ class VKNewsTableViewController: UITableViewController {
         }
     }
     
+    private let networkManager = NetworkManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +36,33 @@ class VKNewsTableViewController: UITableViewController {
         networkManager.loadNews() { posts in
             self.posts = posts
         }
+        
+        setupRefreshControl()
+        
     }
     
+    fileprivate func setupRefreshControl() {
+           
+           refreshControl = UIRefreshControl()
+           refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing...")
+           refreshControl?.tintColor = .blue
+           refreshControl?.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+       }
+    
+    @objc func refreshNews() {
+
+           self.refreshControl?.beginRefreshing()
+        let mostFreshNewsDate = self.posts?.first?.date ?? Date().timeIntervalSince1970
+        networkManager.loadNews(startTime: mostFreshNewsDate + 1) { [weak self] news in
+               guard let self = self else { return }
+               self.refreshControl?.endRefreshing()
+               guard news.count > 0 else { return }
+               self.news = news + self.news
+               let indexSet = IndexSet(integersIn: 0..<news.count)
+               self.tableView.insertSections(indexSet, with: .automatic)
+           }
+       }
+
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
