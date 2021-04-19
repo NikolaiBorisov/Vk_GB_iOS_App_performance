@@ -22,6 +22,7 @@ class MyGroupsCell: UITableViewCell {
         shadowGroupView.animateAvatar()
     }
     
+    var imageService: ImageService?
     override func prepareForReuse() {
         super.prepareForReuse()
         self.groupName.text = nil
@@ -32,6 +33,7 @@ class MyGroupsCell: UITableViewCell {
         self.groupName.text = group.name
         let url = URL(string: group.photo100)
         self.groupImage.kf.setImage(with: url)
+        //self.groupImage.image = imageService?.photo(atIndexpath: , byUrl: group.photo100)
     }
     
 }

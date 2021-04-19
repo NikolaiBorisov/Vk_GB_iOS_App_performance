@@ -51,7 +51,7 @@ class MyFriendsCell: UITableViewCell {
         //Получаем аватарку друга
         let url = URL(string: user.photo100)
         self.friendsPhoto.kf.setImage(with: url)
-        //Получаапем статус в сети или нет
+        //Получаапем статус "в сети" или "не в сети"
         if user.statusOnline == 1 {
             self.statusOnline.isHidden = false
         } else {

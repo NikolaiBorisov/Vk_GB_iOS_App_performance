@@ -26,12 +26,19 @@ class MyFriendsTableController: UITableViewController {
         }
     }
     
-    //7th hometask
-    private var allFriends: Results<User>? {
+    lazy var myRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl.tintColor = .systemTeal
+        return refreshControl
+    }()
+    
+    var allFriends: Results<User>? {
         didSet {
             tableView.reloadData()
         }
     }
+    var imageService: ImageService?
     var token: NotificationToken?
     var filteredFriends = [User]()
     var searchBarIsEmpty: Bool {
@@ -46,6 +53,21 @@ class MyFriendsTableController: UITableViewController {
     var friendSections = [FriendsSections]()
     private let networkManager = NetworkManager()
     private let realmManager = RealmManager.shared
+    
+    @objc func refreshData(_ sender: UIRefreshControl) {
+        networkManager.loadFriends() { [weak self] (myFriends) in
+            let friendsDictionary = Dictionary.init(grouping: myFriends) {
+                $0.lastName.prefix(1)
+            }
+            self?.friendSections = friendsDictionary.map { FriendsSections(title: String($0.key), items: $0.value) }
+            self?.friendSections.sort { $0.title < $1.title }
+            DispatchQueue.main.async {
+                try? self?.realmManager?.add(objects: myFriends)
+                self?.tableView.reloadData()
+            }
+            sender.endRefreshing()
+        }
+    }
     
     func pairTableAndRealm() {
         guard let realm = try? Realm() else { return }
@@ -87,12 +109,15 @@ class MyFriendsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageService = ImageService(container: tableView)
+        tableView.refreshControl = myRefreshControl
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.setValue("Cancel", forKey: "cancelButtonText")
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        PromiseFriends.freandPromise()
         pairTableAndRealm()
     }
     
@@ -133,7 +158,9 @@ class MyFriendsTableController: UITableViewController {
         } else {
             friends = friendSections[indexPath.section].items[indexPath.row]
         }
-        cell.configure(with: friends)
+        //cell.configure(with: friends)
+        cell.friendsName.text = friends.firstName + " " + friends.lastName
+        cell.friendsPhoto.image = imageService?.photo(atIndexpath: indexPath, byUrl: friends.photo100)
         return cell
     }
     

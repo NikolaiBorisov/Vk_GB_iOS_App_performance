@@ -15,6 +15,7 @@ target 'Vk black&white' do
  pod 'Firebase/Database'
  pod 'Firebase/Auth'
  pod 'Firebase/Firestore'
+ pod "PromiseKit", "~> 6.8"
  
 
   # Pods for Vk black&white
